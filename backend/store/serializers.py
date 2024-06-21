@@ -73,7 +73,7 @@ class CartSerializer(serializers.ModelSerializer):
         model = Cart
         fields = "__all__"
     def __init__(self,*args,**kwargs):
-        super(CartSerializer,self).__init(*args,**kwargs)
+        super(CartSerializer,self).__init__(*args,**kwargs)
         request = self.context.get("request")
         if request and request.method == "POST":
             self.Meta.depth = 0
@@ -84,7 +84,7 @@ class CartOrderSerializer(serializers.ModelSerializer):
         model = CartOrder
         fields = "__all__"
         def __init__(self,*args,**kwargs):
-            super(CartOrderSerializer,self).__init(*args,**kwargs)
+            super(CartOrderSerializer,self).__init__(*args,**kwargs)
             request = self.context.get("request")
             if request and request.method == "POST":
                 self.Meta.depth = 0
@@ -95,7 +95,7 @@ class CartOrderItemSerializer(serializers.ModelSerializer):
         model = CartOrderItem
         fields = "__all__"
     def __init__(self,*args,**kwargs):
-            super(CartOrderItemSerializer,self).__init(*args,**kwargs)
+            super(CartOrderItemSerializer,self).__init__(*args,**kwargs)
             request = self.context.get("request")
             if request and request.method == "POST":
                 self.Meta.depth = 0
@@ -107,7 +107,7 @@ class ProductFaqSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def __init__(self,*args,**kwargs):
-            super(ProductFaqSerializer,self).__init(*args,**kwargs)
+            super(ProductFaqSerializer,self).__init__(*args,**kwargs)
             request = self.context.get("request")
             if request and request.method == "POST":
                 self.Meta.depth = 0
@@ -118,7 +118,7 @@ class VendorSerializer(serializers.ModelSerializer):
         model = Vendor
         fields = "__all__"
     def __init__(self,*args,**kwargs):
-        super(VendorSerializer,self).__init(*args,**kwargs)
+        super(VendorSerializer,self).__init__(*args,**kwargs)
         request = self.context.get("request")
         if request and request.method == "POST":
             self.Meta.depth = 0
@@ -130,7 +130,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def __init__(self,*args,**kwargs):
-            super(ReviewSerializer,self).__init(*args,**kwargs)
+            super(ReviewSerializer,self).__init__(*args,**kwargs)
             request = self.context.get("request")
             if request and request.method == "POST":
                 self.Meta.depth = 0
@@ -143,7 +143,7 @@ class WishlistSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def __init__(self,*args,**kwargs):
-            super(WishlistSerializer,self).__init(*args,**kwargs)
+            super(WishlistSerializer,self).__init__(*args,**kwargs)
             request = self.context.get("request")
             if request and request.method == "POST":
                 self.Meta.depth = 0
@@ -153,7 +153,7 @@ class NotificationSerializer(serializers.ModelSerializer):
         model = Notification
         fields = "__all__"
     def __init__(self,*args,**kwargs):
-            super(NotificationSerializer,self).__init(*args,**kwargs)
+            super(NotificationSerializer,self).__init__(*args,**kwargs)
             request = self.context.get("request")
             if request and request.method == "POST":
                 self.Meta.depth = 0
@@ -164,7 +164,7 @@ class CouponSerializer(serializers.ModelSerializer):
         model = Coupon
         fields = "__all__"
     def __init__(self,*args,**kwargs):
-            super(CouponSerializer,self).__init(*args,**kwargs)
+            super(CouponSerializer,self).__init__(*args,**kwargs)
             request = self.context.get("request")
             if request and request.method == "POST":
                 self.Meta.depth = 0

@@ -180,6 +180,8 @@ class CartOrder(models.Model):
     def __str__(self):
         return self.oid
 
+        
+  
 class CartOrderItem(models.Model):
     order = models.ForeignKey(CartOrder,on_delete=models.CASCADE)
     vendor = models.ForeignKey(Vendor,on_delete=models.CASCADE)
@@ -196,6 +198,7 @@ class CartOrderItem(models.Model):
     color = models.CharField(max_length=100,null=True,blank=True)
 
      #Coupons
+    coupon = models.ManyToManyField("store.Coupon",blank=True)
     initial_total = models.DecimalField(decimal_places=2,max_digits=12,default=0.00)
     saved = models.DecimalField(decimal_places=2,max_digits=12,default=0.00)
     oid = ShortUUIDField(unique=True,length=10,alphabet="abcdefg12345")
@@ -271,7 +274,6 @@ class Notification(models.Model):
             return self.order.oid
         else:
             return f"Notification - {self.pk}"
-        
 class Coupon(models.Model):
     vendor = models.ForeignKey(Vendor,on_delete=models.CASCADE)
     user_by = models.ManyToManyField(User,blank=True)
@@ -281,9 +283,8 @@ class Coupon(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.code  
-
-
+        return self.code
+  
 class Tax(models.Model):
     country = models.CharField(max_length=100)
     rate = models.IntegerField(default=5,help_text="Numbers added here are in percentage e.g 5%")
